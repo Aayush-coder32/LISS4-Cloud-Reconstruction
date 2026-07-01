@@ -12,7 +12,7 @@ export function LeafletMap({
 }: {
   bounds: Bounds | null;
   overlayUrl?: string | null;
-  geoJson?: GeoJSON.GeoJsonObject | null;
+  geoJson?: any;
 }) {
   const mapBounds: [[number, number], [number, number]] = bounds
     ? [
