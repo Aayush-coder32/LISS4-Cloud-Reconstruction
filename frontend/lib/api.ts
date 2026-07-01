@@ -25,8 +25,11 @@ export function clearToken() {
 export async function apiRequest<T>(path: string, init: RequestInit = {}): Promise<T> {
   const token = getToken();
   const headers = new Headers(init.headers);
-  if (!(init.body instanceof FormData) && !headers.has("Content-Type")) {
+  if (!(init.body instanceof FormData) && !(init.body instanceof URLSearchParams) && !headers.has("Content-Type")) {
     headers.set("Content-Type", "application/json");
+  }
+  if (init.body instanceof URLSearchParams && !headers.has("Content-Type")) {
+    headers.set("Content-Type", "application/x-www-form-urlencoded");
   }
   if (token) {
     headers.set("Authorization", `Bearer ${token}`);
@@ -125,9 +128,10 @@ export function toPublicFileUrl(path: string | null) {
   if (!path) {
     return null;
   }
-  const normalized = path.replaceAll("/", "\\");
-  const parts = normalized.split(STORAGE_SEGMENT);
-  if (parts.length < 2) {
+  const normalized = path.replaceAll("\\", "/");
+  const marker = normalized.includes("backend/storage") ? "backend/storage" : STORAGE_SEGMENT.replaceAll("\\", "/");
+  const parts = normalized.split(marker);
+  if (parts.length < 2 || !parts[1]) {
     return null;
   }
   return `http://localhost:8000/files${parts[1].replaceAll("\\", "/")}`;
