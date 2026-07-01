@@ -6,6 +6,9 @@ from pathlib import Path
 from pydantic import Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+BACKEND_DIR = Path(__file__).resolve().parents[2]
+REPO_ROOT = Path(__file__).resolve().parents[3]
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
@@ -28,12 +31,12 @@ class Settings(BaseSettings):
     google_redirect_path: str = "/api/v1/auth/google/callback"
     allowed_origins: list[str] = Field(default_factory=lambda: ["http://localhost:3000"])
 
-    storage_root: Path = Path("backend/storage")
-    raw_upload_dir: Path = Path("backend/storage/raw")
-    processed_dir: Path = Path("backend/storage/processed")
-    preview_dir: Path = Path("backend/storage/previews")
-    report_dir: Path = Path("backend/storage/reports")
-    checkpoint_dir: Path = Path("artifacts/checkpoints")
+    storage_root: Path = BACKEND_DIR / "storage"
+    raw_upload_dir: Path = BACKEND_DIR / "storage" / "raw"
+    processed_dir: Path = BACKEND_DIR / "storage" / "processed"
+    preview_dir: Path = BACKEND_DIR / "storage" / "previews"
+    report_dir: Path = BACKEND_DIR / "storage" / "reports"
+    checkpoint_dir: Path = REPO_ROOT / "artifacts" / "checkpoints"
 
     max_upload_mb: int = 512
 
