@@ -1,5 +1,6 @@
 "use client";
 
+import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useRef } from "react";
 
 type Bounds = { left: number; bottom: number; right: number; top: number };
