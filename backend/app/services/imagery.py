@@ -119,6 +119,12 @@ class ImageryService:
         array = np.nan_to_num(array).astype(np.float32)
         destination = settings.processed_dir / f"{stem}.tif"
         output_profile = profile.copy()
+        if output_profile.get("transform") is not None and (
+            output_profile.get("height") != int(array.shape[1]) or output_profile.get("width") != int(array.shape[2])
+        ):
+            scale_x = output_profile["width"] / float(array.shape[2])
+            scale_y = output_profile["height"] / float(array.shape[1])
+            output_profile["transform"] = output_profile["transform"] * Affine.scale(scale_x, scale_y)
         output_profile.update(
             {
                 "driver": "GTiff",
