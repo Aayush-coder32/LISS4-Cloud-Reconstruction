@@ -25,6 +25,7 @@ export function MapView({
   overlayUrl?: string | null;
 }) {
   const [mode, setMode] = useState<"leaflet" | "mapbox">("leaflet");
+  const mapKey = `${title}-${overlayUrl ?? "none"}-${bounds ? `${bounds.left}-${bounds.bottom}-${bounds.right}-${bounds.top}` : "default"}`;
 
   return (
     <Card>
@@ -42,7 +43,7 @@ export function MapView({
           </Button>
         </div>
       </div>
-      {mode === "leaflet" ? <LeafletMap bounds={bounds} overlayUrl={overlayUrl} /> : <MapboxCanvas bounds={bounds} />}
+      {mode === "leaflet" ? <LeafletMap key={`leaflet-${mapKey}`} bounds={bounds} overlayUrl={overlayUrl} /> : <MapboxCanvas key={`mapbox-${mapKey}`} bounds={bounds} />}
     </Card>
   );
 }
