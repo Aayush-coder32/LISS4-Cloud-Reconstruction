@@ -4,6 +4,7 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.api.routes import auth, history, inference, uploads
 from app.core.config import settings
@@ -25,6 +26,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.mount("/files", StaticFiles(directory=settings.storage_root), name="files")
 
 
 @app.get("/healthz", tags=["health"])
