@@ -1,0 +1,89 @@
+services:
+  postgres:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-gencloudnet}
+      POSTGRES_USER: ${POSTGRES_USER:-gencloudnet}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-gencloudnet}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.16.2
+    command: mlflow server --host 0.0.0.0 --port 5000
+    ports:
+      - "5000:5000"
+    volumes:
+      - mlflow_data:/mlflow
+
+  backend:
+    build:
+      context: .
+      dockerfile: infra/docker/backend.Dockerfile
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://gencloudnet:gencloudnet@postgres:5432/gencloudnet}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      MLFLOW_TRACKING_URI: ${MLFLOW_TRACKING_URI:-http://mlflow:5000}
+      BACKEND_BASE_URL: ${BACKEND_BASE_URL:-http://localhost:8000}
+      FRONTEND_BASE_URL: ${FRONTEND_BASE_URL:-http://localhost:3000}
+    depends_on:
+      - postgres
+      - redis
+      - mlflow
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/storage:/app/backend/storage
+      - ./artifacts:/app/artifacts
+
+  worker:
+    build:
+      context: .
+      dockerfile: infra/docker/backend.Dockerfile
+    env_file:
+      - .env
+    environment:
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://gencloudnet:gencloudnet@postgres:5432/gencloudnet}
+      REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
+      MLFLOW_TRACKING_URI: ${MLFLOW_TRACKING_URI:-http://mlflow:5000}
+    depends_on:
+      - backend
+    command: celery -A app.workers.celery_app.celery_app worker --loglevel=INFO
+    volumes:
+      - ./backend/storage:/app/backend/storage
+      - ./artifacts:/app/artifacts
+
+  frontend:
+    build:
+      context: .
+      dockerfile: infra/docker/frontend.Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000/api/v1}
+        NEXT_PUBLIC_MAPBOX_TOKEN: ${MAPBOX_TOKEN:-}
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+  nginx:
+    image: nginx:1.27-alpine
+    depends_on:
+      - frontend
+      - backend
+    volumes:
+      - ./infra/docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "80:80"
+
+volumes:
+  postgres_data:
+  mlflow_data:
