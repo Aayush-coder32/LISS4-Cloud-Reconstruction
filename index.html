@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Generative AI-Based Cloud Removal and Reconstruction for LISS-IV Satellite Imagery frontend prototype."
+  >
+  <title>Generative AI Cloud Removal for LISS-IV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="space-noise" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="aurora aurora-left" aria-hidden="true"></div>
+  <div class="aurora aurora-right" aria-hidden="true"></div>
+  <div class="particle-field" id="particleField" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <nav class="navbar container">
+      <a class="brand" href="#home" aria-label="Project home">
+        <span class="brand-mark">
+          <span class="brand-orbit brand-orbit-one"></span>
+          <span class="brand-orbit brand-orbit-two"></span>
+          <span class="brand-core"></span>
+        </span>
+        <span class="brand-copy">
+          <span class="brand-kicker">ISRO AI Dashboard</span>
+          <span class="brand-title">LISS-IV Cloud Reconstruction</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="primaryNav">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Satellite Intelligence for Earth Observation</p>
+          <h1>Generative AI-Based Cloud Removal and Reconstruction for LISS-IV Satellite Imagery</h1>
+          <p class="hero-text">
+            A premium frontend prototype for cloud occlusion detection, terrain-aware reconstruction,
+            and research-grade LISS-IV visualization. Designed for hackathons, demos, and advanced
+            satellite imaging presentations.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#upload">Upload Image</a>
+            <a class="btn btn-secondary" href="#about">Learn More</a>
+          </div>
+          <div class="hero-badges">
+            <span>Research Grade Workflow</span>
+            <span>Mock AI Processing</span>
+            <span>Responsive Frontend Only</span>
+          </div>
+        </div>
+
+        <div class="hero-visual glass-card reveal">
+          <div class="hero-visual-copy">
+            <p class="hero-visual-kicker">Orbital Preview</p>
+            <h2>Autonomous cloud removal pipeline</h2>
+          </div>
+          <svg class="satellite-scene" viewBox="0 0 640 520" role="img" aria-label="Satellite illustration">
+            <defs>
+              <linearGradient id="planetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00E5FF"></stop>
+                <stop offset="55%" stop-color="#1E88E5"></stop>
+                <stop offset="100%" stop-color="#071E35"></stop>
+              </linearGradient>
+              <linearGradient id="panelGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#8CEBFF"></stop>
+                <stop offset="100%" stop-color="#0F4978"></stop>
+              </linearGradient>
+              <linearGradient id="beamGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="rgba(0,229,255,0.65)"></stop>
+                <stop offset="100%" stop-color="rgba(0,255,198,0)"></stop>
+              </linearGradient>
+            </defs>
+            <circle cx="200" cy="308" r="140" fill="url(#planetGradient)" opacity="0.94"></circle>
+            <path
+              d="M90 330 C155 250, 270 260, 334 318 C280 393, 158 414, 90 330Z"
+              fill="rgba(9, 38, 63, 0.65)"
+            ></path>
+            <path
+              d="M128 364 C182 312, 258 316, 312 354 C257 408, 185 410, 128 364Z"
+              fill="rgba(13, 62, 92, 0.75)"
+            ></path>
+            <g class="orbit-ring">
+              <ellipse cx="250" cy="226" rx="196" ry="84" fill="none" stroke="rgba(140, 235, 255, 0.22)" stroke-width="2"></ellipse>
+              <ellipse cx="250" cy="226" rx="168" ry="62" fill="none" stroke="rgba(0, 255, 198, 0.12)" stroke-width="1.5"></ellipse>
+            </g>
+            <g class="cloud-layer">
+              <ellipse cx="164" cy="222" rx="40" ry="22" fill="rgba(237, 245, 255, 0.68)"></ellipse>
+              <ellipse cx="210" cy="236" rx="54" ry="25" fill="rgba(237, 245, 255, 0.56)"></ellipse>
+              <ellipse cx="260" cy="214" rx="46" ry="22" fill="rgba(237, 245, 255, 0.5)"></ellipse>
+            </g>
+            <g class="satellite-body">
+              <rect x="408" y="120" width="58" height="48" rx="10" fill="#DCF8FF"></rect>
+              <rect x="465" y="96" width="102" height="24" rx="8" fill="url(#panelGradient)"></rect>
+              <rect x="465" y="168" width="102" height="24" rx="8" fill="url(#panelGradient)"></rect>
+              <rect x="306" y="96" width="102" height="24" rx="8" fill="url(#panelGradient)"></rect>
+              <rect x="306" y="168" width="102" height="24" rx="8" fill="url(#panelGradient)"></rect>
+              <path d="M437 168 L390 250" stroke="#9AE9FF" stroke-width="6" stroke-linecap="round"></path>
+              <circle cx="388" cy="255" r="14" fill="#B1FBFF"></circle>
+              <path d="M390 252 L258 312" stroke="rgba(0,229,255,0.7)" stroke-width="2.5" stroke-dasharray="8 8"></path>
+            </g>
+            <path d="M388 255 L332 424 L446 424 Z" fill="url(#beamGradient)" opacity="0.9"></path>
+            <g class="scan-dots">
+              <circle cx="355" cy="342" r="3" fill="#00FFC6"></circle>
+              <circle cx="388" cy="365" r="3" fill="#00FFC6"></circle>
+              <circle cx="410" cy="325" r="3" fill="#00E5FF"></circle>
+              <circle cx="428" cy="385" r="3" fill="#00E5FF"></circle>
+            </g>
+          </svg>
+          <div class="hero-stats">
+            <div>
+              <strong>98.7%</strong>
+              <span>Cloud removal</span>
+            </div>
+            <div>
+              <strong>42.5 dB</strong>
+              <span>PSNR</span>
+            </div>
+            <div>
+              <strong>0.987</strong>
+              <span>SSIM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="container section-heading reveal">
+        <p class="eyebrow">Interactive Demo</p>
+        <h2>Upload, simulate, compare, and present results</h2>
+        <p>
+          This interface demonstrates a full mock workflow for satellite cloud removal, complete with
+          file preview, animated processing, and comparison tools.
+        </p>
+      </div>
+
+      <div class="container dashboard-grid">
+        <section class="upload-panel glass-card reveal" id="upload">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Upload Section</p>
+              <h3>Drag and drop LISS-IV imagery</h3>
+            </div>
+            <span class="status-pill status-idle" id="uploadStatus">Awaiting image</span>
+          </div>
+
+          <div class="upload-dropzone" id="dropZone" tabindex="0" role="button" aria-controls="imageInput">
+            <div class="upload-icon">
+              <span class="upload-ring"></span>
+              <span class="upload-core"></span>
+            </div>
+            <h4>Drop PNG or JPG files here</h4>
+            <p>Upload a cloud-covered satellite frame to simulate AI reconstruction.</p>
+            <button class="btn btn-primary" id="browseButton" type="button">Browse File</button>
+            <input id="imageInput" type="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" hidden>
+            <div class="upload-meta">
+              <span>Supported: PNG, JPG, JPEG</span>
+              <span>Max size: 12 MB</span>
+            </div>
+          </div>
+
+          <div class="info-grid compact-grid">
+            <article class="mini-card">
+              <span class="mini-label">File Name</span>
+              <strong id="fileName">Demo-LISS4-Capture.png</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-label">Image Size</span>
+              <strong id="fileSize">4.8 MB</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-label">Resolution</span>
+              <strong id="fileResolution">4096 x 4096</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-label">Format</span>
+              <strong id="fileFormat">PNG</strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="glass-card reveal">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Original Preview</p>
+              <h3>Inspect incoming imagery</h3>
+            </div>
+            <div class="card-tools">
+              <button class="ghost-btn" id="zoomButton" type="button">Zoom</button>
+              <button class="ghost-btn" id="fullscreenButton" type="button">Fullscreen</button>
+              <button class="ghost-btn" id="resetButton" type="button">Reset</button>
+            </div>
+          </div>
+
+          <div class="preview-shell" id="previewShell">
+            <div class="preview-frame">
+              <img id="previewImage" src="" alt="Uploaded or placeholder original satellite image">
+            </div>
+            <aside class="preview-side">
+              <div class="info-grid">
+                <article class="mini-card">
+                  <span class="mini-label">Satellite Name</span>
+                  <strong>LISS-IV</strong>
+                </article>
+                <article class="mini-card">
+                  <span class="mini-label">Cloud Percentage</span>
+                  <strong id="cloudCoverage">61%</strong>
+                </article>
+                <article class="mini-card">
+                  <span class="mini-label">Capture Date</span>
+                  <strong id="captureDate">2026-06-24</strong>
+                </article>
+                <article class="mini-card">
+                  <span class="mini-label">Resolution</span>
+                  <strong id="previewResolution">5.8 m</strong>
+                </article>
+              </div>
+              <div class="status-card">
+                <span class="mini-label">Processing Status</span>
+                <strong id="processingStatus">Standby</strong>
+                <p id="processingSummary">
+                  Upload an image and run the mock pipeline to generate a cloud-free reconstruction.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="glass-card processing-panel reveal">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">AI Processing</p>
+              <h3>Simulate the reconstruction pipeline</h3>
+            </div>
+            <span class="status-pill status-idle" id="pipelineBadge">Ready</span>
+          </div>
+
+          <div class="processing-layout">
+            <div class="processing-primary">
+              <button class="btn btn-primary btn-wide" id="processButton" type="button">Remove Clouds</button>
+              <div class="progress-panel" aria-live="polite">
+                <div class="progress-head">
+                  <span>Pipeline progress</span>
+                  <strong id="progressValue">0%</strong>
+                </div>
+                <div class="progress-track">
+                  <span class="progress-fill" id="progressFill"></span>
+                </div>
+              </div>
+            </div>
+
+            <ol class="processing-steps" id="processingSteps">
+              <li class="step-item"><span>01</span> Uploading Image</li>
+              <li class="step-item"><span>02</span> Detecting Clouds</li>
+              <li class="step-item"><span>03</span> Running Generative AI Model</li>
+              <li class="step-item"><span>04</span> Reconstructing Surface</li>
+              <li class="step-item"><span>05</span> Enhancing Details</li>
+              <li class="step-item"><span>06</span> Generating Final Output</li>
+              <li class="step-item"><span>07</span> Completed</li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="glass-card result-panel reveal" id="result">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Result Section</p>
+              <h3>Cloud-Free Reconstructed Image</h3>
+            </div>
+            <span class="status-pill status-success" id="resultBadge">Prototype result</span>
+          </div>
+
+          <div class="result-layout">
+            <div class="result-media">
+              <div class="preview-frame processed-frame">
+                <img id="resultImage" class="processed-image" src="" alt="Mock cloud-free reconstructed image">
+              </div>
+              <div class="result-actions">
+                <button class="btn btn-secondary" id="downloadButton" type="button">Download Image</button>
+                <button class="btn btn-secondary" id="compareButton" type="button">Compare Images</button>
+                <button class="btn btn-secondary" id="uploadAnotherButton" type="button">Upload Another</button>
+              </div>
+            </div>
+
+            <div class="metrics-grid">
+              <article class="metric-card">
+                <span class="mini-label">Cloud Removed</span>
+                <strong>98.7%</strong>
+              </article>
+              <article class="metric-card">
+                <span class="mini-label">Confidence Score</span>
+                <strong>99.1%</strong>
+              </article>
+              <article class="metric-card">
+                <span class="mini-label">PSNR</span>
+                <strong>42.5 dB</strong>
+              </article>
+              <article class="metric-card">
+                <span class="mini-label">SSIM</span>
+                <strong>0.987</strong>
+              </article>
+              <article class="metric-card">
+                <span class="mini-label">Processing Time</span>
+                <strong>3.2 Seconds</strong>
+              </article>
+              <article class="metric-card">
+                <span class="mini-label">Image Quality</span>
+                <strong>Excellent</strong>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="glass-card comparison-panel reveal" id="comparison">
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Before and After</p>
+              <h3>Interactive comparison slider</h3>
+            </div>
+            <span class="status-pill status-idle">Responsive slider</span>
+          </div>
+
+          <div class="comparison-stage" id="comparisonStage">
+            <div class="comparison-layer comparison-base">
+              <img id="compareBeforeImage" src="" alt="Original satellite image">
+              <span class="compare-label compare-label-left">Original Image</span>
+            </div>
+            <div class="comparison-layer comparison-after">
+              <img id="compareAfterImage" class="processed-image" src="" alt="Reconstructed satellite image">
+              <span class="compare-label compare-label-right">Reconstructed Image</span>
+            </div>
+            <span class="compare-handle" id="compareHandle"></span>
+          </div>
+          <input
+            class="comparison-range"
+            id="comparisonRange"
+            type="range"
+            min="0"
+            max="100"
+            value="55"
+            aria-label="Before and after comparison"
+          >
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container section-heading reveal">
+        <p class="eyebrow">AI Features</p>
+        <h2>Designed like a modern satellite analytics dashboard</h2>
+        <p>
+          Every card below highlights a core capability this frontend prototype is meant to communicate
+          during a hackathon, project review, or research showcase.
+        </p>
+      </div>
+
+      <div class="container feature-grid">
+        <article class="feature-card glass-card reveal"><span class="feature-icon">L4</span><h3>LISS-IV Support</h3><p>Purpose-built framing for high-resolution Indian satellite imagery workflows.</p></article>
+        <article class="feature-card glass-card reveal"><span class="feature-icon">CD</span><h3>Automatic Cloud Detection</h3><p>Simulated cloud localization and masking across the incoming observation scene.</p></article>
+        <article class="feature-card glass-card reveal"><span class="feature-icon">AI</span><h3>Generative Reconstruction</h3><p>Mock AI model stage for terrain-aware visual synthesis of obscured regions.</p></article>
+        <article class="feature-card glass-card reveal"><span class="feature-icon">TR</span><h3>Terrain Recovery</h3><p>Restores agricultural, urban, and natural surface continuity beneath cloud cover.</p></article>
+        <article class="feature-card glass-card reveal"><span class="feature-icon">HQ</span><h3>High Resolution Output</h3><p>Premium preview cards emphasize research-grade image quality and clarity.</p></article>
+        <article class="feature-card glass-card reveal"><span class="feature-icon">FP</span><h3>Fast Processing</h3><p>Animated progress stages show quick-turnaround results for demo presentations.</p></article>
+        <article class="feature-card glass-card reveal"><span class="feature-icon">RG</span><h3>Research Grade Results</h3><p>Metrics, comparison tools, and workflow steps support academic storytelling.</p></article>
+        <article class="feature-card glass-card reveal"><span class="feature-icon">DL</span><h3>Download Support</h3><p>Interface includes export controls to mimic final analyst delivery flows.</p></article>
+        <article class="feature-card glass-card reveal"><span class="feature-icon">DB</span><h3>Modern Dashboard</h3><p>Glassmorphism cards, space gradients, and data panels create a premium feel.</p></article>
+        <article class="feature-card glass-card reveal"><span class="feature-icon">RD</span><h3>Responsive Design</h3><p>Built to scale cleanly from wide desktops to compact mobile screens.</p></article>
+      </div>
+    </section>
+
+    <section class="section workflow-section">
+      <div class="container section-heading reveal">
+        <p class="eyebrow">Workflow Timeline</p>
+        <h2>From upload to cloud-free result</h2>
+        <p>
+          The pipeline is presented as a guided operational sequence so visitors immediately understand
+          how imagery moves through the system.
+        </p>
+      </div>
+
+      <div class="container timeline reveal">
+        <article class="timeline-step glass-card">
+          <span class="timeline-index">01</span>
+          <h3>Upload Image</h3>
+          <p>Bring in a cloud-covered LISS-IV frame for analysis.</p>
+        </article>
+        <article class="timeline-step glass-card">
+          <span class="timeline-index">02</span>
+          <h3>Cloud Detection</h3>
+          <p>Identify opaque zones and estimate obstruction coverage.</p>
+        </article>
+        <article class="timeline-step glass-card">
+          <span class="timeline-index">03</span>
+          <h3>AI Reconstruction</h3>
+          <p>Run the generative model to rebuild hidden surface data.</p>
+        </article>
+        <article class="timeline-step glass-card">
+          <span class="timeline-index">04</span>
+          <h3>Image Enhancement</h3>
+          <p>Refine edges, colors, and detail consistency for presentation.</p>
+        </article>
+        <article class="timeline-step glass-card">
+          <span class="timeline-index">05</span>
+          <h3>Cloud-Free Result</h3>
+          <p>Deliver a polished comparison-ready output view.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section stats-section">
+      <div class="container stats-grid">
+        <article class="stat-card glass-card reveal">
+          <span class="mini-label">Images Processed</span>
+          <strong class="counter" data-target="1000" data-prefix="" data-suffix="+">0</strong>
+        </article>
+        <article class="stat-card glass-card reveal">
+          <span class="mini-label">Accuracy</span>
+          <strong class="counter" data-target="98.7" data-prefix="" data-suffix="%">0</strong>
+        </article>
+        <article class="stat-card glass-card reveal">
+          <span class="mini-label">Reconstruction Quality</span>
+          <strong class="counter" data-target="99" data-prefix="" data-suffix="%">0</strong>
+        </article>
+        <article class="stat-card glass-card reveal">
+          <span class="mini-label">Average Processing Time</span>
+          <strong class="counter" data-target="5" data-prefix="" data-suffix=" sec">0</strong>
+        </article>
+      </div>
+    </section>
+
+    <section class="section stack-section">
+      <div class="container section-heading reveal">
+        <p class="eyebrow">Technology Stack</p>
+        <h2>Frontend-first prototype architecture</h2>
+        <p>
+          The stack below is intentionally simple for rapid delivery while still feeling polished and
+          presentation ready.
+        </p>
+      </div>
+
+      <div class="container stack-grid">
+        <article class="stack-card glass-card reveal"><span class="stack-icon">H5</span><h3>HTML5</h3><p>Semantic structure for content-rich scientific storytelling.</p></article>
+        <article class="stack-card glass-card reveal"><span class="stack-icon">C3</span><h3>CSS3</h3><p>Glassmorphism, gradients, motion, and adaptive layouts.</p></article>
+        <article class="stack-card glass-card reveal"><span class="stack-icon">JS</span><h3>JavaScript</h3><p>Upload preview, animation control, slider logic, and validation.</p></article>
+        <article class="stack-card glass-card reveal"><span class="stack-icon">GA</span><h3>Generative AI</h3><p>Mocked intelligence stage for reconstruction demonstration.</p></article>
+        <article class="stack-card glass-card reveal"><span class="stack-icon">L4</span><h3>LISS-IV</h3><p>Satellite mission framing and observation-focused visual language.</p></article>
+        <article class="stack-card glass-card reveal"><span class="stack-icon">SI</span><h3>Satellite Imaging</h3><p>Scene preview, comparative analysis, and quality metrics.</p></article>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <p class="eyebrow">About Project</p>
+          <h2>Why this problem matters</h2>
+          <div class="about-panels">
+            <article class="glass-card about-card">
+              <h3>What is LISS-IV?</h3>
+              <p>
+                LISS-IV is a high-resolution multispectral imaging sensor used for detailed Earth
+                observation, mapping, and resource monitoring across diverse landscapes.
+              </p>
+            </article>
+            <article class="glass-card about-card">
+              <h3>Why cloud removal is important</h3>
+              <p>
+                Cloud cover blocks critical terrain information, reducing the usefulness of satellite
+                imagery for planning, monitoring, and rapid-response decision making.
+              </p>
+            </article>
+            <article class="glass-card about-card">
+              <h3>How Generative AI helps</h3>
+              <p>
+                Generative models can infer plausible surface structure from surrounding context,
+                supporting clearer interpretation when direct observation is unavailable.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div class="applications reveal">
+          <p class="eyebrow">Applications</p>
+          <h3>High-impact use cases</h3>
+          <div class="application-grid">
+            <span>Agriculture</span>
+            <span>Forest Monitoring</span>
+            <span>Urban Planning</span>
+            <span>Disaster Management</span>
+            <span>Environmental Monitoring</span>
+            <span>Water Resource Analysis</span>
+            <span>Military Surveillance</span>
+            <span>Land Cover Assessment</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Contact Section</p>
+          <h2>Share feedback or collaboration ideas</h2>
+          <p>
+            Use this mock contact form to present how the project could collect research inquiries,
+            partnership notes, or demo requests.
+          </p>
+          <div class="contact-points glass-card">
+            <p><strong>Project Focus:</strong> Cloud removal for LISS-IV satellite imagery</p>
+            <p><strong>Prototype Mode:</strong> Frontend only with mock AI workflow</p>
+            <p><strong>Presentation Use:</strong> Hackathons, academic demos, research showcases</p>
+          </div>
+        </div>
+
+        <form class="contact-form glass-card reveal" id="contactForm" novalidate>
+          <label>
+            <span>Name</span>
+            <input id="nameInput" name="name" type="text" placeholder="Enter your name">
+          </label>
+          <label>
+            <span>Email</span>
+            <input id="emailInput" name="email" type="email" placeholder="name@example.com">
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea id="messageInput" name="message" rows="5" placeholder="Tell us about your idea or feedback"></textarea>
+          </label>
+          <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand footer-brand-link" href="#home">
+          <span class="brand-mark">
+            <span class="brand-orbit brand-orbit-one"></span>
+            <span class="brand-orbit brand-orbit-two"></span>
+            <span class="brand-core"></span>
+          </span>
+          <span class="brand-copy">
+            <span class="brand-kicker">Project Logo</span>
+            <span class="brand-title">LISS-IV Cloud Reconstruction</span>
+          </span>
+        </a>
+        <p>
+          A futuristic frontend prototype for demonstrating AI-assisted satellite cloud removal and
+          terrain reconstruction concepts.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Social</h3>
+        <a href="#" id="githubLink">GitHub</a>
+        <a href="#" id="linkedinLink">LinkedIn</a>
+        <a href="#" id="emailLink">Email</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Generative AI-Based Cloud Removal and Reconstruction for LISS-IV Satellite Imagery</p>
+      <button class="back-to-top" id="backToTop" type="button">Back To Top</button>
+    </div>
+  </footer>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="modal" id="successModal" aria-hidden="true">
+    <div class="modal-card glass-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <p class="eyebrow">Message Sent</p>
+      <h3 id="modalTitle">Thanks for reaching out</h3>
+      <p>Your message has been captured in this prototype workflow. A success popup is shown for demo purposes.</p>
+      <button class="btn btn-primary" id="closeModalButton" type="button">Close</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
