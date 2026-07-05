@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Registration page for the Generative AI-Based Cloud Removal and Reconstruction for LISS-IV Satellite Imagery prototype."
+  >
+  <title>Register | LISS-IV Cloud Reconstruction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="space-noise" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="aurora aurora-left" aria-hidden="true"></div>
+  <div class="aurora aurora-right" aria-hidden="true"></div>
+  <div class="particle-field" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <nav class="navbar container">
+      <a class="brand" href="index.html#home" aria-label="Project home">
+        <span class="brand-mark">
+          <span class="brand-orbit brand-orbit-one"></span>
+          <span class="brand-orbit brand-orbit-two"></span>
+          <span class="brand-core"></span>
+        </span>
+        <span class="brand-copy">
+          <span class="brand-kicker">ISRO AI Dashboard</span>
+          <span class="brand-title">LISS-IV Cloud Reconstruction</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="primaryNav">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="nav-cta" href="index.html#demo">View Demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="register-page">
+    <section class="container register-grid">
+      <div class="register-copy glass-card">
+        <div>
+          <p class="eyebrow">Research Access Registration</p>
+          <h1>Register for the LISS-IV reconstruction experience</h1>
+          <p>
+            Create a prototype account to request demo access, share your research intent, and stay
+            connected with the cloud-removal workflow built for LISS-IV satellite imagery.
+          </p>
+        </div>
+
+        <div class="register-badges">
+          <span>Prototype Signup</span>
+          <span>Academic Demo Ready</span>
+          <span>Frontend Validation Flow</span>
+        </div>
+
+        <div class="register-highlights glass-card">
+          <div>
+            <h2>What registration unlocks</h2>
+            <p>
+              Use this screen to present a polished sign-up flow for hackathons, academic reviews,
+              and internal product demos.
+            </p>
+          </div>
+          <div class="info-grid">
+            <article class="mini-card">
+              <span class="mini-label">Portal Access</span>
+              <strong>Research dashboard onboarding</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-label">Demo Slots</span>
+              <strong>Priority registration requests</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-label">Use Case</span>
+              <strong>Cloud removal exploration</strong>
+            </article>
+            <article class="mini-card">
+              <span class="mini-label">Environment</span>
+              <strong>Mock prototype workflow</strong>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <section class="register-panel glass-card" aria-labelledby="registrationTitle">
+        <p class="eyebrow">Registration Form</p>
+        <h2 id="registrationTitle">Create your project profile</h2>
+        <p>
+          Fill in the details below to simulate a new registration journey for this frontend
+          prototype.
+        </p>
+
+        <div class="register-meta">
+          <span>Estimated time: 2 minutes</span>
+          <span>Secure prototype fields</span>
+          <span>Responsive form layout</span>
+        </div>
+
+        <form class="contact-form register-form" id="registrationForm" novalidate>
+          <div class="form-grid">
+            <label>
+              <span>Full Name</span>
+              <input id="registerName" name="fullName" type="text" placeholder="Enter your full name" autocomplete="name">
+            </label>
+
+            <label>
+              <span>Email Address</span>
+              <input id="registerEmail" name="email" type="email" placeholder="name@example.com" autocomplete="email">
+            </label>
+
+            <label>
+              <span>Mobile Number</span>
+              <input id="registerPhone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel">
+            </label>
+
+            <label>
+              <span>Organization / College</span>
+              <input id="registerOrg" name="organization" type="text" placeholder="ISRO, university, lab, or startup">
+            </label>
+
+            <label>
+              <span>Primary Role</span>
+              <select id="registerRole" name="role">
+                <option value="">Select your role</option>
+                <option value="student">Student Researcher</option>
+                <option value="faculty">Faculty / Mentor</option>
+                <option value="scientist">Scientist / Analyst</option>
+                <option value="developer">Developer / Engineer</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Region of Interest</span>
+              <select id="registerRegion" name="region">
+                <option value="">Select a region</option>
+                <option value="agriculture">Agriculture Monitoring</option>
+                <option value="urban">Urban Mapping</option>
+                <option value="disaster">Disaster Response</option>
+                <option value="forestry">Forestry and Ecology</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Password</span>
+              <input id="registerPassword" name="password" type="password" placeholder="Create a password" autocomplete="new-password">
+            </label>
+
+            <label>
+              <span>Confirm Password</span>
+              <input id="registerConfirmPassword" name="confirmPassword" type="password" placeholder="Re-enter your password" autocomplete="new-password">
+            </label>
+
+            <label class="form-span-2">
+              <span>Project Goal</span>
+              <textarea
+                id="registerGoal"
+                name="goal"
+                rows="5"
+                placeholder="Tell us how you want to use the LISS-IV cloud reconstruction prototype."
+              ></textarea>
+            </label>
+          </div>
+
+          <label class="checkbox-row" id="consentRow">
+            <input id="registerConsent" name="consent" type="checkbox">
+            <span>
+              I confirm that this is a prototype registration and I agree to the demo terms,
+              sample communication, and research presentation usage.
+            </span>
+          </label>
+
+          <p class="form-feedback" id="registerFeedback" aria-live="polite"></p>
+
+          <div class="register-actions">
+            <button class="btn btn-primary" type="submit">Create Registration</button>
+            <a class="btn btn-secondary" href="index.html#home">Back to Homepage</a>
+          </div>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand footer-brand-link" href="index.html#home">
+          <span class="brand-mark">
+            <span class="brand-orbit brand-orbit-one"></span>
+            <span class="brand-orbit brand-orbit-two"></span>
+            <span class="brand-core"></span>
+          </span>
+          <span class="brand-copy">
+            <span class="brand-kicker">Project Logo</span>
+            <span class="brand-title">LISS-IV Cloud Reconstruction</span>
+          </span>
+        </a>
+        <p>
+          Registration flow crafted to match the futuristic visual language of the cloud
+          reconstruction dashboard.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <a href="index.html#home">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#demo">Demo</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Page Flow</h3>
+        <a href="#registrationTitle">Registration Form</a>
+        <a href="index.html#demo">View Demo</a>
+        <a href="index.html#contact">Need Help?</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Generative AI-Based Cloud Removal and Reconstruction for LISS-IV Satellite Imagery</p>
+      <button class="back-to-top" id="backToTop" type="button">Back To Top</button>
+    </div>
+  </footer>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="modal" id="successModal" aria-hidden="true">
+    <div class="modal-card glass-card" role="dialog" aria-modal="true" aria-labelledby="registerModalTitle">
+      <p class="eyebrow">Registration Submitted</p>
+      <h3 id="registerModalTitle">Your profile has been created</h3>
+      <p>
+        This submission is stored only in the frontend demo flow, but the screen now behaves like a
+        complete registration page.
+      </p>
+      <button class="btn btn-primary" id="closeModalButton" type="button">Close</button>
+    </div>
+  </div>
+
+  <script src="register.js"></script>
+</body>
+</html>
