@@ -1919,6 +1919,190 @@ body.signin-body .signin-panel {
   }
 }
 
+/* Home page light-theme adjustments */
+body.home-body {
+  background:
+    radial-gradient(circle at top left, rgba(232, 208, 169, 0.16), transparent 24%),
+    linear-gradient(180deg, #fffaf2 0%, #f8efe2 100%);
+}
+
+body.home-body .space-noise,
+body.home-body .grid-overlay {
+  opacity: 0.025;
+}
+
+body.home-body .navbar {
+  background: #f8eddc;
+  border-color: #e8d5b1;
+  box-shadow: 0 12px 28px rgba(139, 111, 58, 0.14);
+  backdrop-filter: none;
+}
+
+body.home-body .site-header.scrolled .navbar {
+  background: #f8eddc;
+  border-color: #e2cba0;
+  box-shadow: 0 14px 30px rgba(139, 111, 58, 0.18);
+}
+
+body.home-body .nav-links a,
+body.home-body .footer-brand p,
+body.home-body .footer-bottom p,
+body.home-body .footer-links a {
+  color: #556575;
+}
+
+body.home-body .brand-title,
+body.home-body .hero-copy h1,
+body.home-body .section-heading h2,
+body.home-body .about-copy h2,
+body.home-body .contact-copy h2,
+body.home-body .footer-links h3 {
+  color: #1d2a35;
+}
+
+body.home-body .hero-text,
+body.home-body .section-heading p,
+body.home-body .about-copy p,
+body.home-body .contact-copy p {
+  color: #5e6c7b;
+}
+
+body.home-body .footer-grid {
+  border-top-color: rgba(85, 101, 117, 0.18);
+  border-bottom-color: rgba(85, 101, 117, 0.18);
+}
+
+body.home-body .nav-toggle {
+  background: #f8eddc;
+  border-color: #e2cba0;
+}
+
+body.home-body .nav-toggle span {
+  background: #1d2a35;
+}
+
+body.home-body .glass-card {
+  border-color: rgba(144, 192, 225, 0.4);
+  background:
+    linear-gradient(180deg, rgba(220, 239, 252, 0.94), rgba(191, 220, 242, 0.92));
+  box-shadow: 0 16px 34px rgba(97, 145, 183, 0.18);
+}
+
+body.home-body .glass-card::before {
+  display: block;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 65%);
+  opacity: 0.75;
+}
+
+body.home-body .hero-grid {
+  align-items: start;
+}
+
+body.home-body .hero-visual {
+  margin-top: -2.25rem;
+  border-color: rgba(126, 181, 217, 0.45);
+  background:
+    linear-gradient(180deg, rgba(188, 224, 248, 0.94), rgba(129, 178, 215, 0.92)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+  box-shadow: 0 18px 36px rgba(90, 140, 184, 0.24);
+}
+
+body.home-body .hero-badges span,
+body.home-body .upload-meta span,
+body.home-body .mini-card,
+body.home-body .status-card,
+body.home-body .metric-card,
+body.home-body .stat-card,
+body.home-body .stack-card,
+body.home-body .timeline-step,
+body.home-body .applications,
+body.home-body .application-grid span,
+body.home-body .upload-dropzone,
+body.home-body .preview-frame,
+body.home-body .comparison-stage,
+body.home-body .step-item,
+body.home-body .ghost-btn,
+body.home-body .contact-points {
+  border-color: rgba(150, 195, 226, 0.42);
+  background: rgba(223, 240, 251, 0.88);
+  box-shadow: 0 10px 24px rgba(110, 155, 192, 0.12);
+}
+
+body.home-body .hero-stats div {
+  border-color: rgba(196, 226, 248, 0.32);
+  background: rgba(209, 233, 249, 0.92);
+}
+
+body.home-body .step-item span,
+body.home-body .timeline-index,
+body.home-body .feature-icon,
+body.home-body .stack-icon,
+body.home-body .status-pill,
+body.home-body .progress-track,
+body.home-body .compare-label {
+  border-color: rgba(170, 210, 236, 0.45);
+  background: rgba(201, 230, 248, 0.92);
+  box-shadow: none;
+}
+
+body.home-body .step-item.active,
+body.home-body .step-item.completed {
+  background: rgba(205, 233, 249, 0.96);
+  transform: none;
+}
+
+body.home-body .card-heading h3,
+body.home-body .feature-card h3,
+body.home-body .timeline-step h3,
+body.home-body .stack-card h3,
+body.home-body .about-card h3,
+body.home-body .applications h3,
+body.home-body .hero-visual-copy h2,
+body.home-body .mini-card strong,
+body.home-body .status-card strong,
+body.home-body .metric-card strong,
+body.home-body .stat-card strong,
+body.home-body .hero-stats strong {
+  color: #1e3d58;
+}
+
+body.home-body .card-heading p,
+body.home-body .feature-card p,
+body.home-body .timeline-step p,
+body.home-body .stack-card p,
+body.home-body .about-card p,
+body.home-body .status-card p,
+body.home-body .hero-stats span,
+body.home-body .mini-label,
+body.home-body .applications span,
+body.home-body .upload-meta span,
+body.home-body .hero-badges span {
+  color: #5c7288;
+}
+
+body.home-body .hero-visual-kicker,
+body.home-body .eyebrow,
+body.home-body .brand-kicker {
+  color: #4f86b3;
+}
+
+@media (max-width: 920px) {
+  body.home-body .nav-links {
+    background: #f8eddc;
+    border-color: #e2cba0;
+    box-shadow: 0 18px 42px rgba(139, 111, 58, 0.18);
+  }
+
+  body.home-body .nav-links a:hover,
+  body.home-body .nav-links a:focus-visible {
+    background: rgba(37, 99, 235, 0.08);
+  }
+
+  body.home-body .hero-visual {
+    margin-top: 0;
+  }
+}
+
 /* Keyframes */
 @keyframes pulseRing {
   0%,
