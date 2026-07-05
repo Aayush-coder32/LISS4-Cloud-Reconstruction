@@ -46,6 +46,33 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+body.home-body,
+body.register-body,
+body.signin-body {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body.home-body {
+  background-image:
+    linear-gradient(rgba(4, 10, 24, 0.74), rgba(6, 16, 30, 0.78)),
+    url("https://tse2.mm.bing.net/th/id/OIP.ypQXLY-czi3OLbx1J8J26gHaEa?pid=Api&P=0&h=180");
+}
+
+body.register-body {
+  background-image:
+    linear-gradient(rgba(3, 9, 22, 0.78), rgba(8, 20, 35, 0.84)),
+    url("https://wallpapercave.com/wp/wp4981245.jpg");
+}
+
+body.signin-body {
+  background-image:
+    linear-gradient(rgba(4, 14, 28, 0.78), rgba(5, 18, 28, 0.82)),
+    url("https://img.freepik.com/premium-photo/isro-day-copy-space-background_548646-61554.jpg?w=996");
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -1285,6 +1312,66 @@ nav {
   align-items: center;
 }
 
+.signin-page {
+  padding: 4.25rem 0 6rem;
+}
+
+.signin-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.signin-copy,
+.signin-panel {
+  padding: 1.9rem;
+}
+
+.signin-copy {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.signin-copy h1 {
+  margin: 0.35rem 0 0.9rem;
+  color: var(--text-strong);
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(2.35rem, 4vw, 4rem);
+  line-height: 1.08;
+}
+
+.signin-copy p,
+.signin-panel p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.signin-features {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.signin-panel h2 {
+  margin: 0.45rem 0 0.85rem;
+  color: var(--text-strong);
+  font-family: "Poppins", sans-serif;
+}
+
+.signin-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.signin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  align-items: center;
+}
+
 .return-link {
   color: var(--text-main);
 }
@@ -1438,6 +1525,7 @@ nav {
 
   .hero-grid,
   .register-grid,
+  .signin-grid,
   .preview-shell,
   .result-layout,
   .contact-grid,
@@ -1552,6 +1640,10 @@ nav {
   }
 
   .register-page {
+    padding-top: 2.5rem;
+  }
+
+  .signin-page {
     padding-top: 2.5rem;
   }
 }

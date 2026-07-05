@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Sign in page for the LISS-IV Cloud Reconstruction frontend prototype."
+  >
+  <title>Sign In | LISS-IV Cloud Reconstruction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&family=Poppins:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="signin-body">
+  <div class="space-noise" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="aurora aurora-left" aria-hidden="true"></div>
+  <div class="aurora aurora-right" aria-hidden="true"></div>
+  <div class="particle-field" id="particleField" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <nav class="navbar container">
+      <a class="brand" href="index.html#home" aria-label="Project home">
+        <span class="brand-mark">
+          <span class="brand-orbit brand-orbit-one"></span>
+          <span class="brand-orbit brand-orbit-two"></span>
+          <span class="brand-core"></span>
+        </span>
+        <span class="brand-copy">
+          <span class="brand-kicker">ISRO AI Dashboard</span>
+          <span class="brand-title">LISS-IV Cloud Reconstruction</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="primaryNav">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="register.html">Register</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="nav-cta" href="index.html#demo">View Demo</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="signin-page">
+    <section class="container signin-grid">
+      <div class="signin-copy glass-card">
+        <div>
+          <p class="eyebrow">Prototype Access</p>
+          <h1>Sign in to the LISS-IV dashboard</h1>
+          <p>
+            Use this streamlined sign-in flow to enter the prototype workspace and continue with your
+            cloud reconstruction demo journey.
+          </p>
+        </div>
+
+        <div class="signin-features">
+          <article class="mini-card">
+            <span class="mini-label">Access Type</span>
+            <strong>Username and password only</strong>
+          </article>
+          <article class="mini-card">
+            <span class="mini-label">Experience</span>
+            <strong>Fast demo-ready login screen</strong>
+          </article>
+          <article class="mini-card">
+            <span class="mini-label">Flow</span>
+            <strong>Register, sign in, explore demo</strong>
+          </article>
+        </div>
+      </div>
+
+      <section class="signin-panel glass-card" aria-labelledby="signInTitle">
+        <p class="eyebrow">Sign In Form</p>
+        <h2 id="signInTitle">Enter your credentials</h2>
+        <p>
+          Username and password fields only, exactly as requested for a minimal and clean sign-in
+          page.
+        </p>
+
+        <form class="contact-form signin-form" id="signInForm" novalidate>
+          <label>
+            <span>Username</span>
+            <input id="usernameInput" name="username" type="text" placeholder="Enter your username" autocomplete="username">
+          </label>
+
+          <label>
+            <span>Password</span>
+            <input id="passwordInput" name="password" type="password" placeholder="Enter your password" autocomplete="current-password">
+          </label>
+
+          <p class="form-feedback" id="signInFeedback" aria-live="polite"></p>
+
+          <div class="signin-actions">
+            <button class="btn btn-primary" type="submit">Sign In</button>
+            <a class="btn btn-secondary" href="register.html">Go to Register</a>
+          </div>
+        </form>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand footer-brand-link" href="index.html#home">
+          <span class="brand-mark">
+            <span class="brand-orbit brand-orbit-one"></span>
+            <span class="brand-orbit brand-orbit-two"></span>
+            <span class="brand-core"></span>
+          </span>
+          <span class="brand-copy">
+            <span class="brand-kicker">Project Logo</span>
+            <span class="brand-title">LISS-IV Cloud Reconstruction</span>
+          </span>
+        </a>
+        <p>
+          Minimal sign-in screen created to pair with the registration page and project landing
+          experience.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <a href="index.html#home">Home</a>
+        <a href="register.html">Register</a>
+        <a href="index.html#demo">Demo</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="footer-links">
+        <h3>Page Flow</h3>
+        <a href="#signInTitle">Sign In Form</a>
+        <a href="register.html">Need an account?</a>
+        <a href="index.html#demo">View Demo</a>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Generative AI-Based Cloud Removal and Reconstruction for LISS-IV Satellite Imagery</p>
+      <button class="back-to-top" id="backToTop" type="button">Back To Top</button>
+    </div>
+  </footer>
+
+  <div class="toast-stack" id="toastStack" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="modal" id="successModal" aria-hidden="true">
+    <div class="modal-card glass-card" role="dialog" aria-modal="true" aria-labelledby="signInModalTitle">
+      <p class="eyebrow">Sign In Complete</p>
+      <h3 id="signInModalTitle">Welcome back</h3>
+      <p>Your credentials have been accepted in this prototype sign-in flow.</p>
+      <button class="btn btn-primary" id="closeModalButton" type="button">Close</button>
+    </div>
+  </div>
+
+  <script src="sign-in.js"></script>
+</body>
+</html>
