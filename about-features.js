@@ -20,16 +20,40 @@ function bindInfoNavigation() {
     return;
   }
 
-  infoElements.navToggle.addEventListener("click", () => {
-    const open = infoElements.body.classList.toggle("nav-open");
+  const setNavState = (open) => {
+    infoElements.body.classList.toggle("nav-open", open);
     infoElements.navToggle.setAttribute("aria-expanded", String(open));
+  };
+
+  infoElements.navToggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setNavState(!infoElements.body.classList.contains("nav-open"));
+  });
+
+  infoElements.navLinks.addEventListener("click", (event) => {
+    event.stopPropagation();
   });
 
   infoElements.links.forEach((link) => {
     link.addEventListener("click", () => {
-      infoElements.body.classList.remove("nav-open");
-      infoElements.navToggle.setAttribute("aria-expanded", "false");
+      setNavState(false);
     });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!infoElements.body.classList.contains("nav-open")) {
+      return;
+    }
+
+    if (!infoElements.navLinks.contains(event.target) && !infoElements.navToggle.contains(event.target)) {
+      setNavState(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setNavState(false);
+    }
   });
 
   window.addEventListener("scroll", syncHeaderState, { passive: true });

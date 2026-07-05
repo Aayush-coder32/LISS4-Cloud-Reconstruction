@@ -41,16 +41,40 @@ function createParticles() {
 }
 
 function bindNavigation() {
-  elements.navToggle.addEventListener("click", () => {
-    const open = elements.body.classList.toggle("nav-open");
+  const setNavState = (open) => {
+    elements.body.classList.toggle("nav-open", open);
     elements.navToggle.setAttribute("aria-expanded", String(open));
+  };
+
+  elements.navToggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    setNavState(!elements.body.classList.contains("nav-open"));
+  });
+
+  elements.primaryNav.addEventListener("click", (event) => {
+    event.stopPropagation();
   });
 
   document.querySelectorAll(".nav-links a, .brand, .footer-links a").forEach((link) => {
     link.addEventListener("click", () => {
-      elements.body.classList.remove("nav-open");
-      elements.navToggle.setAttribute("aria-expanded", "false");
+      setNavState(false);
     });
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!elements.body.classList.contains("nav-open")) {
+      return;
+    }
+
+    if (!elements.primaryNav.contains(event.target) && !elements.navToggle.contains(event.target)) {
+      setNavState(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setNavState(false);
+    }
   });
 
   elements.backToTop.addEventListener("click", () => {
