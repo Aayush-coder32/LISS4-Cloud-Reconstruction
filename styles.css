@@ -1932,26 +1932,42 @@ body.home-body .grid-overlay {
 }
 
 body.home-body .navbar {
-  background: #f8eddc;
-  border-color: #e8d5b1;
-  box-shadow: 0 12px 28px rgba(139, 111, 58, 0.14);
-  backdrop-filter: none;
+  background: rgba(34, 39, 48, 0.82);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(14px);
 }
 
 body.home-body .site-header.scrolled .navbar {
-  background: #f8eddc;
-  border-color: #e2cba0;
-  box-shadow: 0 14px 30px rgba(139, 111, 58, 0.18);
+  background: rgba(28, 33, 41, 0.9);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
 }
 
-body.home-body .nav-links a,
+body.home-body .nav-links a {
+  color: #ffffff;
+}
+
 body.home-body .footer-brand p,
 body.home-body .footer-bottom p,
 body.home-body .footer-links a {
   color: #556575;
 }
 
-body.home-body .brand-title,
+body.home-body .brand-title {
+  color: #ffffff;
+}
+
+@media (min-width: 921px) {
+  body.home-body .navbar {
+    justify-content: flex-start;
+  }
+
+  body.home-body .nav-links {
+    margin-left: clamp(2.5rem, 7vw, 5.5rem);
+  }
+}
+
 body.home-body .hero-copy h1,
 body.home-body .section-heading h2,
 body.home-body .about-copy h2,
@@ -2063,7 +2079,7 @@ body.home-body .status-card strong,
 body.home-body .metric-card strong,
 body.home-body .stat-card strong,
 body.home-body .hero-stats strong {
-  color: #1e3d58;
+  color: #111111;
 }
 
 body.home-body .card-heading p,
@@ -2077,25 +2093,62 @@ body.home-body .mini-label,
 body.home-body .applications span,
 body.home-body .upload-meta span,
 body.home-body .hero-badges span {
-  color: #5c7288;
+  color: #111111;
+}
+
+body.home-body .contact-form span,
+body.home-body .contact-form input,
+body.home-body .contact-form textarea {
+  color: #111111;
+}
+
+body.home-body .contact-form input,
+body.home-body .contact-form textarea {
+  border-color: rgba(150, 195, 226, 0.42);
+  background: rgba(201, 230, 248, 0.92);
+  box-shadow: 0 10px 24px rgba(110, 155, 192, 0.08);
+  caret-color: #111111;
+}
+
+body.home-body .contact-form input::placeholder,
+body.home-body .contact-form textarea::placeholder {
+  color: #4f5f6f;
+  opacity: 1;
+}
+
+body.home-body .contact-form input:focus,
+body.home-body .contact-form textarea:focus {
+  border-color: rgba(79, 134, 179, 0.55);
+  box-shadow: 0 0 0 3px rgba(79, 134, 179, 0.14);
+}
+
+body.home-body .processing-panel .card-heading h3,
+body.home-body .processing-panel .card-heading p,
+body.home-body .processing-panel .status-pill,
+body.home-body .progress-head,
+body.home-body .step-item,
+body.home-body .step-item span,
+body.home-body .step-item.active,
+body.home-body .step-item.completed {
+  color: #4f86b3;
 }
 
 body.home-body .hero-visual-kicker,
 body.home-body .eyebrow,
 body.home-body .brand-kicker {
-  color: #4f86b3;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 @media (max-width: 920px) {
   body.home-body .nav-links {
-    background: #f8eddc;
-    border-color: #e2cba0;
-    box-shadow: 0 18px 42px rgba(139, 111, 58, 0.18);
+    background: rgba(28, 33, 41, 0.96);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
   }
 
   body.home-body .nav-links a:hover,
   body.home-body .nav-links a:focus-visible {
-    background: rgba(37, 99, 235, 0.08);
+    background: rgba(255, 255, 255, 0.08);
   }
 
   body.home-body .hero-visual {
