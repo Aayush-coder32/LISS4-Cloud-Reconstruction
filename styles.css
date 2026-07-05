@@ -1297,14 +1297,22 @@ body.signin-body .glass-card::before {
 }
 
 .register-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   width: 100%;
   padding: 0.95rem 1rem;
   border: 1px solid rgba(132, 225, 255, 0.14);
   border-radius: var(--radius-sm);
   background: rgba(7, 13, 24, 0.82);
+  background-image: none;
   color: var(--text-strong);
   outline: none;
   transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.register-form select::-ms-expand {
+  display: none;
 }
 
 .register-form select:focus {
