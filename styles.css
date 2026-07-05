@@ -57,20 +57,41 @@ body.signin-body {
 
 body.home-body {
   background-image:
-    linear-gradient(rgba(4, 10, 24, 0.74), rgba(6, 16, 30, 0.78)),
+    linear-gradient(rgba(4, 10, 24, 0.28), rgba(6, 16, 30, 0.34)),
     url("https://tse2.mm.bing.net/th/id/OIP.ypQXLY-czi3OLbx1J8J26gHaEa?pid=Api&P=0&h=180");
 }
 
 body.register-body {
   background-image:
-    linear-gradient(rgba(3, 9, 22, 0.78), rgba(8, 20, 35, 0.84)),
+    linear-gradient(rgba(3, 9, 22, 0.34), rgba(8, 20, 35, 0.4)),
     url("https://wallpapercave.com/wp/wp4981245.jpg");
 }
 
 body.signin-body {
   background-image:
-    linear-gradient(rgba(4, 14, 28, 0.78), rgba(5, 18, 28, 0.82)),
+    linear-gradient(rgba(4, 14, 28, 0.34), rgba(5, 18, 28, 0.38)),
     url("https://img.freepik.com/premium-photo/isro-day-copy-space-background_548646-61554.jpg?w=996");
+}
+
+body.home-body .space-noise,
+body.register-body .space-noise,
+body.signin-body .space-noise {
+  opacity: 0.04;
+}
+
+body.home-body .grid-overlay,
+body.register-body .grid-overlay,
+body.signin-body .grid-overlay {
+  opacity: 0.05;
+}
+
+body.home-body .aurora,
+body.register-body .aurora,
+body.signin-body .aurora,
+body.home-body .particle-field,
+body.register-body .particle-field,
+body.signin-body .particle-field {
+  display: none;
 }
 
 img {
@@ -221,6 +242,20 @@ nav {
   height: 12rem;
   background: radial-gradient(circle, rgba(0, 229, 255, 0.15), transparent 65%);
   opacity: 0.7;
+}
+
+body.home-body .glass-card,
+body.register-body .glass-card,
+body.signin-body .glass-card {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: linear-gradient(180deg, rgba(8, 12, 18, 0.58), rgba(8, 12, 18, 0.72));
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.26);
+}
+
+body.home-body .glass-card::before,
+body.register-body .glass-card::before,
+body.signin-body .glass-card::before {
+  display: none;
 }
 
 .card-heading {
