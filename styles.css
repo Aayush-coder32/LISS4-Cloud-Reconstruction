@@ -69,8 +69,7 @@ body.register-body {
 
 body.signin-body {
   background-image:
-    linear-gradient(rgba(4, 14, 28, 0.34), rgba(5, 18, 28, 0.38)),
-    url("https://img.freepik.com/premium-photo/isro-day-copy-space-background_548646-61554.jpg?w=996");
+    linear-gradient(rgba(4, 14, 28, 0.72), rgba(5, 18, 28, 0.78));
 }
 
 body.home-body .space-noise,
@@ -1405,6 +1404,18 @@ body.register-body .eyebrow {
 .signin-copy {
   display: grid;
   gap: 1.2rem;
+}
+
+body.signin-body .signin-copy,
+body.signin-body .signin-panel {
+  border-color: rgba(255, 255, 255, 0.16);
+  background-image:
+    linear-gradient(rgba(8, 16, 28, 0.44), rgba(8, 16, 28, 0.56)),
+    url("https://images.moneycontrol.com/static-mcnews/2023/08/Chandrayaannew-1-770x433.jpg?impolicy=website&width=770&height=431");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
 }
 
 .signin-copy h1 {
