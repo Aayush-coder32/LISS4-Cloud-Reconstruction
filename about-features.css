@@ -1032,6 +1032,51 @@ body.nav-open {
   border-radius: 1.1rem;
 }
 
+.info-nav-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+.info-nav-link-label {
+  white-space: nowrap;
+}
+
+.icon-home {
+  mask-image: url("assets/icons/home.svg");
+  -webkit-mask-image: url("assets/icons/home.svg");
+}
+
+.icon-features {
+  mask-image: url("assets/icons/features.svg");
+  -webkit-mask-image: url("assets/icons/features.svg");
+}
+
+.icon-about {
+  mask-image: url("assets/icons/about.svg");
+  -webkit-mask-image: url("assets/icons/about.svg");
+}
+
+.icon-register {
+  mask-image: url("assets/icons/register.svg");
+  -webkit-mask-image: url("assets/icons/register.svg");
+}
+
+.icon-globe {
+  mask-image: url("assets/icons/globe.svg");
+  -webkit-mask-image: url("assets/icons/globe.svg");
+}
+
 .info-nav-links a::after {
   left: 0.45rem;
   right: auto;

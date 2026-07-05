@@ -2315,6 +2315,65 @@ body.signin-body .nav-links a {
   border-radius: 1.1rem;
 }
 
+body.home-body .nav-link-icon,
+body.register-body .nav-link-icon,
+body.signin-body .nav-link-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  background-color: currentColor;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+}
+
+body.home-body .nav-link-label,
+body.register-body .nav-link-label,
+body.signin-body .nav-link-label {
+  white-space: nowrap;
+}
+
+body.home-body .icon-home,
+body.register-body .icon-home,
+body.signin-body .icon-home {
+  mask-image: url("assets/icons/home.svg");
+  -webkit-mask-image: url("assets/icons/home.svg");
+}
+
+body.home-body .icon-features,
+body.register-body .icon-features,
+body.signin-body .icon-features {
+  mask-image: url("assets/icons/features.svg");
+  -webkit-mask-image: url("assets/icons/features.svg");
+}
+
+body.home-body .icon-about,
+body.register-body .icon-about,
+body.signin-body .icon-about {
+  mask-image: url("assets/icons/about.svg");
+  -webkit-mask-image: url("assets/icons/about.svg");
+}
+
+body.home-body .icon-contact,
+body.register-body .icon-contact,
+body.signin-body .icon-contact {
+  mask-image: url("assets/icons/contact.svg");
+  -webkit-mask-image: url("assets/icons/contact.svg");
+}
+
+body.home-body .icon-register,
+body.register-body .icon-register,
+body.signin-body .icon-register {
+  mask-image: url("assets/icons/register.svg");
+  -webkit-mask-image: url("assets/icons/register.svg");
+}
+
 body.home-body .nav-links a::after,
 body.register-body .nav-links a::after,
 body.signin-body .nav-links a::after {
