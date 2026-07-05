@@ -3,6 +3,7 @@ const elements = {
   header: document.querySelector(".site-header"),
   navToggle: document.getElementById("navToggle"),
   primaryNav: document.getElementById("primaryNav"),
+  particleField: document.getElementById("particleField"),
   registrationForm: document.getElementById("registrationForm"),
   registerName: document.getElementById("registerName"),
   registerEmail: document.getElementById("registerEmail"),
@@ -25,10 +26,27 @@ const elements = {
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
+  createParticles();
   bindNavigation();
   bindRegistrationForm();
   bindModal();
   syncScrollState();
+}
+
+function createParticles() {
+  const count = 18;
+
+  for (let index = 0; index < count; index += 1) {
+    const particle = document.createElement("span");
+    const size = (Math.random() * 3 + 1.1).toFixed(2);
+    particle.style.left = `${Math.random() * 100}%`;
+    particle.style.width = `${size}px`;
+    particle.style.height = `${size}px`;
+    particle.style.animationDuration = `${Math.random() * 14 + 18}s`;
+    particle.style.animationDelay = `${Math.random() * -18}s`;
+    particle.style.opacity = `${Math.random() * 0.65 + 0.2}`;
+    elements.particleField.appendChild(particle);
+  }
 }
 
 function bindNavigation() {
