@@ -138,7 +138,7 @@ flowchart TD
 ### 3. Comparison Experience
 
 - Before/after image comparison slider
-- Supporting metric cards
+- Supporting metric cards and images
 - Simulated research presentation flow
 
 ### 4. Information Architecture
